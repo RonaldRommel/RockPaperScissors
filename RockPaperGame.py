@@ -36,8 +36,9 @@ class Window(QWidget):
         self.setGeometry(500, 200, 861, 661)
         self.UI()
         self.show()
-        self.setWindowIcon(QIcon('game.ico'))
-        oImage = QImage("game.jpg")
+        self.setWindowIcon(QIcon('images/game.ico'))
+        oImage = QImage("images/game.jpg")
+        self.setFixedSize(861,661)
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
@@ -59,11 +60,11 @@ class Window(QWidget):
 
         ################# Label ########################
         self.image1 = QLabel(self)
-        im1 = QPixmap("rock.png")
+        im1 = QPixmap("images/rock.png")
         self.image1.setPixmap(im1)
         self.image1.move(100, 150)
         self.image2 = QLabel(self)
-        im2 = QPixmap("paper.png")
+        im2 = QPixmap("images/paper.png")
         self.image2.move(500, 150)
         self.image2.setPixmap(im2)
 
@@ -88,7 +89,7 @@ class Window(QWidget):
         self.timer.timeout.connect(self.Timer)
 
     def Timer(self):
-        gamedict={1: "rock.png", 2: "paper.png", 3: "scissors.png"}
+        gamedict={1: "images/rock.png", 2: "images/paper.png", 3: "images/scissors.png"}
         self.c = random.randint(1, 3)
         self.u = random.randint(1, 3)
         self.image1.setPixmap(QPixmap(gamedict[self.c]))
